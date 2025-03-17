@@ -30,44 +30,39 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-        }),
-      });
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      }),
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      if (result.success) {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-
-        // Reset form after showing success message
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({
-            name: "",
-            email: "",
-            company: "",
-            message: "",
-          });
-        }, 3000);
-      } else {
-        setIsSubmitting(false);
-        alert("Failed to send message. Please try again.");
-      }
-    } catch (error) {
+    if (result.success) {
       setIsSubmitting(false);
-      alert("An error occurred. Please try again.");
+      setIsSubmitted(true);
+
+      // Reset form after showing success message
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        });
+      }, 3000);
+    } else {
+      setIsSubmitting(false);
+      alert("Failed to send message. Please try again.");
     }
   };
 
@@ -176,7 +171,7 @@ export default function ContactForm() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="your.email@example.com"
+                  placeholder="youremail@example.com"
                   required
                   className="bg-gray-900 border-gray-700 text-white"
                 />

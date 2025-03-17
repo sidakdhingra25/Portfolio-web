@@ -2,31 +2,54 @@
 import dynamic from "next/dynamic";
 const UseAnimations = dynamic(() => import("react-useanimations"), { ssr: false });
 import infinity from 'react-useanimations/lib/infinity';
+import { motion , useMotionTemplate, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
+const text = " with experience in both freelance and internship roles. I specialize in React, TypeScript, Next.js, Node.js, and MongoDB, with a strong focus on building scalable web applications. Currently, I work as a Web Developer at FinCon Research and have previously contributed as a Frontend Developer at StudioMarici and Flib.I love to create seamless user experiences and collaborating with cross-functional teams.";
+const words = text.split(' ');
 
 export default function Introduction() {
+    const scrollTarget = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: scrollTarget, 
+        offset: ['start end', 'end end']});
+        
+        useMotionValueEvent(scrollYProgress, "change", (latest) => 
+        console.log("latest", latest)
+    );
+    const [currentword, setCurrentword] = useState(0);
+    const wordsIndex = useTransform(scrollYProgress, [0, 1], [0, words.length]);
+    
+    useEffect(() => {
+        wordsIndex.on('change', (latest) => {
+            setCurrentword(latest);
+        })
+    })
+    
     return (
         <section id="introduction" className=" flex justify-center items-center">
-            <div className="md:container text-center">
-                <div className="text-center text-lime-400">
+            <div className="md:max-w-7xl sm:max-w-md text-center">
+                <div className="sticky top-28">
+                <div className="flex justify-center text-lime-400">
                     <span className="border border-lime-600 py-2 px-2 gap-2 bg-fill rounded-full align-middle inline-flex">
-                        <UseAnimations animation={infinity} className="" size={26} fillColor='white' strokeColor="lime" /> Welcome to our website
+                        <UseAnimations animation={infinity} className="" size={26} fillColor='white' strokeColor="lime" /> Small description of who i am
                     </span>
                 </div>
-                <div className="text-xl md:text-4xl lg:text-6xl mt-10 font-medium text-center">
-                    Registration Fee:
-                    
-                    Competitors: Pay the amount specified earlier based on your selected game and format.
-                    General Entry: ₹60 per attendee (includes access to DJ performances, Free Play zones, and casual gaming).
-                    🔹 Payment Methods:
-                    UPI ID: dakshdagar103@oksbi
-                    Cash Payment: Available at the registration desk before the event starts.
-                    Bank Transfer:
-                    Account Holder Name: Daksh Dagar
-                    Account Number: 42018325042
-                    IFSC Code: SBIN0016445
-                    Bank Name: State Bank of India - New Railway Road, Gurgaon
+                <div className="text-xl md:text-4xl lg:text-5xl mt-10 font-medium text-center">
+                   <span>I'm Sidak, a full-stack web developer</span>
+                   <span className=" text-slate-800 leading-tight">
+                    {words.map((word, wordsIndex) => (
+                        <span key={wordsIndex} className={twMerge(
+                            "transition duration-500 text-white/15",
+                            wordsIndex < currentword && "text-white"
+                        )}>
+                            {`${word} `}</span>
+                    ))}
+                    </span>
                 </div>
+                </div>
+            <div className="h-[150vh]" ref={scrollTarget}></div> 
             </div>
         </section>
     );

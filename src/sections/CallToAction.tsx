@@ -37,7 +37,7 @@ export default function CallToAction() {
   };
 
   return (
-    <section id="call-to-action" className="-mt-16 pb-4">
+    <section id="call-to-action" className="-mt-36 pb-4">
       <div className="overflow-x-clip p-4 flex">
         <motion.div
           ref={scope}

@@ -1,18 +1,16 @@
 import figma from "../assets/images/figma-logo.svg";
-import notion from "../assets/images/notion-logo.svg";
-import slack from "../assets/images/slack-logo.svg"; // Updated path
-import relume from "../assets/images/relume-logo.svg";
-import framer from "../assets/images/framer-logo.svg";
+import react from "@/assets/images/React.png"
 import github from "../assets/images/github-logo.svg";
-import Image from "next/image";
+import motion from "@/assets/images/Motion.png"
 import IntegrationColumn from "./IntegrationColumn";
-
+import tailwind from "@/assets/images/Tailwind.png"
+import git from "@/assets/images/Git (1).png"
 const integrations = [
     { name: "Figma", icon: figma, description: "Figma is a collaborative interface design tool." },
-    { name: "Notion", icon: notion, description: "Notion is an all-in-one workspace for notes and docs." },
-    { name: "Slack", icon: slack, description: "Slack is a powerful team communication platform." },
-    { name: "Relume", icon: relume, description: "Relume is a no-code website builder and design system." },
-    { name: "Framer", icon: framer, description: "Framer is a professional website prototyping tool." },
+    { name: "Tailwind", icon: tailwind, description: "Tailwind CSS is a utility-first CSS framework used for rapidly building custom, responsive user interfaces." },
+    { name: "Git", icon: git, description: "Tracking changes in software code, enabling developers to collaborate efficiently and manage project history." },
+    { name: "React", icon: react, description: "React is a JavaScript library for building user interfaces." },
+    { name: "Motion", icon: motion, description: "A modern animation library for JavaScript and React." },
     { name: "GitHub", icon: github, description: "GitHub is the leading platform for code collaboration." },
 ];
 
@@ -27,7 +25,7 @@ export default function Integrations() {
                         <h2 className="text-6xl font-medium mt-6">My <span className="text-lime-400">skills</span></h2>
                     </div>
                 <div>
-                <div className="h-[400px] lg:h-[800px] mt-8 lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]">
+                <div className="h-[400px] lg:h-[700px] mt-8 lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]">
                     
                     <IntegrationColumn integrations={integrations}/>
                     <IntegrationColumn integrations={integrations.slice().reverse()} 
