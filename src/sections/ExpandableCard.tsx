@@ -264,8 +264,6 @@ const cards = [
           
           ⭐ User Authentication Integration: Integrated Spotify's authentication API to enable secure user login and access to personalized data, ensuring a seamless user experience.
              <br /><br />
-          
-          ⭐ Responsive UI Design: Designed and developed a responsive user interface using React and Tailwind CSS, ensuring compatibility across various devices and screen sizes.
         </p>
       )
     },

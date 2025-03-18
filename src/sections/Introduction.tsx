@@ -42,7 +42,7 @@ export default function Introduction() {
                     {words.map((word, wordsIndex) => (
                         <span key={wordsIndex} className={twMerge(
                             "transition duration-500 text-white/15",
-                            wordsIndex < currentword && "text-white"
+                            wordsIndex < currentword && "text-blue-300"
                         )}>
                             {`${word} `}</span>
                     ))}

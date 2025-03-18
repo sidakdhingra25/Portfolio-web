@@ -8,12 +8,12 @@ export default function CallToAction() {
   const animation = useRef<AnimationPlaybackControls | null>(null);
   const [scope, animate] = useAnimate();
 
-  // Detect if the user is on mobile or tablet
+
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+    setIsMobile(window.innerWidth < 768); 
   }, []);
 
-  // Animate text scrolling
+
   useEffect(() => {
     animation.current = animate(
       scope.current,
@@ -22,17 +22,17 @@ export default function CallToAction() {
     );
   }, []);
 
-  // Adjust animation speed on hover/click
+
   useEffect(() => {
     if (animation.current) {
       animation.current.speed = isHovered ? 0.5 : 1;
     }
   }, [isHovered]);
 
-  // Handle hover (for desktop) and click (for mobile)
+ 
   const toggleText = () => {
     if (isMobile) {
-      setIsHovered((prev) => !prev); // Toggle on click for mobile
+      setIsHovered((prev) => !prev); 
     }
   };
 
@@ -44,7 +44,7 @@ export default function CallToAction() {
           className="flex flex-none gap-16 pr-16 text-7xl md:text-8xl font-medium group cursor-pointer"
           onMouseEnter={() => !isMobile && setIsHovered(true)}
           onMouseLeave={() => !isMobile && setIsHovered(false)}
-          onClick={toggleText} // Click for mobile/tablet users
+          onClick={toggleText}
         >
           {Array.from({ length: 10 }).map((_, i) => (
             <div key={i} className="flex items-center gap-16">

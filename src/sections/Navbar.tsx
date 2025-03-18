@@ -2,16 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import LogoImage from "../assets/images/Screenshot 2025-03-11 175949.png";
-import AnimatedHamburgerButton from "@/components/Button";
+import LogoImage from "../assets/images/favicon.ico"
 import { MenuNavbar } from "@/components/MenuNavbar";
+import MobileNav from "@/components/Button";
 
-const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "Features", href: "#features" },
-    { label: "Integrations", href: "#integrations" },
-    { label: "FAQs", href: "#faqs" },
-];
 
 export default function Navbar() {
     const [showNavbar, setShowNavbar] = useState(true);
@@ -48,8 +42,8 @@ export default function Navbar() {
                     <div className="hidden h-auto w-full md:flex justify-end lg:justify-center">
                         <MenuNavbar/>
                     </div>
-                    <div className="flex justify-end h-10 md:hidden">
-                        <AnimatedHamburgerButton/>
+                    <div className="flex relative justify-end h-10 md:hidden">
+                        <MobileNav/>
                     </div>
                 </div>
             </div>
