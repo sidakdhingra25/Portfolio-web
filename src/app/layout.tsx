@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
     variable: "--font-inter",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.variable} font-sans antialiased bg-neutral-950 text-white`}>
                 {children}
+                <Analytics/>
             </body>
         </html>
     );
