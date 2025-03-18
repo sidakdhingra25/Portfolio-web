@@ -6,6 +6,7 @@ import Experience from "@/sections/Experience";
 import Integrations from "@/sections/Integrations";
 import ContactForm from "@/sections/ContactMe";
 import CallToAction from "@/sections/CallToAction";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
     return <>
@@ -29,5 +30,6 @@ export default function Home() {
             <ContactForm/>
         </section>
         <CallToAction/>
+        <Analytics />
     </>;
 }
