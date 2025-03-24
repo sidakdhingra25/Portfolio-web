@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { MotionConfig, motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
+
 
 const VARIANTS = {
   top: {

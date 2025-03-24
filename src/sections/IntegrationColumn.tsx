@@ -5,7 +5,6 @@ import { type IntegrationsType } from "./Integrations";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
-import { reverse } from "dns";
 
 export default function IntegrationColumn(
     porps:{integrations: IntegrationsType
@@ -18,10 +17,10 @@ export default function IntegrationColumn(
     return (
         <motion.div
         initial={{
-            y: reverse ? '-50%' : 0
+            y: reverse ? '-30%' : 0
         }}
         animate = {{
-            y: reverse? 0 : "-50%"
+            y: reverse? 0 : "-30%"
         }}
         transition={{
             duration: 15,

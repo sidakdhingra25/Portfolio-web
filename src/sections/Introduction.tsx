@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 const UseAnimations = dynamic(() => import("react-useanimations"), { ssr: false });
 import infinity from 'react-useanimations/lib/infinity';
-import { motion , useMotionTemplate, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -30,7 +30,7 @@ export default function Introduction() {
     return (
         <section id="introduction" className=" flex justify-center items-center">
             <div className="md:max-w-7xl sm:max-w-md text-center">
-                <div className="sticky top-28">
+                <div className=" sticky top-28">
                 <div className="flex justify-center text-lime-400">
                     <span className="border border-lime-600 py-2 px-2 gap-2 bg-fill rounded-full align-middle inline-flex">
                         <UseAnimations animation={infinity} className="" size={26} fillColor='white' strokeColor="lime" /> Small description of who i am
@@ -49,7 +49,7 @@ export default function Introduction() {
                     </span>
                 </div>
                 </div>
-            <div className="h-[150vh]" ref={scrollTarget}></div> 
+            <div className="h-[100vh]" ref={scrollTarget}></div> 
             </div>
         </section>
     );
