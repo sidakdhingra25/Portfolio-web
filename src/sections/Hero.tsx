@@ -106,7 +106,7 @@ export default function Hero() {
                             <a href="https://github.com/sidakdhingra25" target="_blank">
                                 <UseAnimations animation={github} size={30} speed={1} strokeColor="white" />
                             </a>
-                            <a href="https://www.linkedin.com/in/sidakdhingra25/" target="_blank">
+                            <a href="https://www.linkedin.com/in/sidak-dhingra-9a9b54249/" target="_blank">
                                 <UseAnimations animation={linkedin} size={30} strokeColor="white" />
                             </a>
                             <a href="https://drive.google.com/file/d/14GIPZs5ttZzvIONYiR2r1iZU2t47PLy_/view?usp=drive_link" target="_blank">
