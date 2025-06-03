@@ -109,7 +109,7 @@ export default function Hero() {
                             <a href="https://www.linkedin.com/in/sidak-dhingra-9a9b54249/" target="_blank">
                                 <UseAnimations animation={linkedin} size={30} strokeColor="white" />
                             </a>
-                            <a href="https://drive.google.com/file/d/1fMKFdqPxGCMTJbJrBzhuHneQHJmvKU3J/view?usp=sharing" target="_blank">
+                            <a href="https://drive.google.com/file/d/1Bn3EbGNvXhnb9DTdlaII2uMgJJofCR_-/view?usp=sharing" target="_blank">
                                 <UseAnimations animation={archive} size={25} strokeColor="white" />
                             </a>
                         </motion.div>
